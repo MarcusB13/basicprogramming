@@ -1,4 +1,6 @@
-﻿namespace basic
+﻿using System.Linq;
+
+namespace basic
 {
 
     internal class Program
@@ -48,6 +50,26 @@
 
             WriteNumbersTable(1);
 
+            int[] ar = { 1, 5, 7, 22 }; 
+            Console.WriteLine("TheBiggestNumber");
+            Console.WriteLine(ar.Max());
+
+            Console.WriteLine("Two7sNextToEachOther");
+            Console.WriteLine(Two7sNextToEachOther(new int[] { 8, 2, 5, 7, 9, 0, 7, 7, 3, 1 }));
+            Console.WriteLine("Two7sNextToEachOther");
+            Console.WriteLine(Two7sNextToEachOther(new int[] { 9, 4, 5, 3, 7, 7, 7, 3, 2, 5, 7, 7 }));
+
+            Console.WriteLine("ThreeIncreasingAdjacent");
+            Console.WriteLine(ThreeIncreasingAdjacent(new int[] { 45, 23, 44, 68, 65, 70, 80, 81, 82 }));
+            Console.WriteLine("ThreeIncreasingAdjacent");
+            Console.WriteLine(ThreeIncreasingAdjacent(new int[] { 7, 3, 5, 8, 9, 3, 1, 4 }));
+
+            Console.WriteLine("SieveOfEratosthenes");
+            SieveOfEratosthenes(30).ForEach(x => Console.WriteLine(x.ToString() + " "));
+
+            Console.WriteLine("ExtractString");
+            Console.WriteLine(ExtractString("##dsa##"));
+            
 
 
         }
@@ -190,5 +212,71 @@
                 WriteNumbersTable(tabel + 1);
             }
         }
+
+        static int Two7sNextToEachOther(int[] Inputs)
+        {
+            int SevensNextToEachOther = 0;
+
+            for (int i = 0; i<Inputs.Length; i++)
+            {
+                if (Inputs[i] == 7 && Inputs[i-1] == 7)
+                {
+                    SevensNextToEachOther += 1;
+                }
+            }
+            return SevensNextToEachOther;
+        }
+
+        static bool ThreeIncreasingAdjacent(int[] Inputs)
+        {
+            for(int i = 0; i<Inputs.Length; i++)
+            {
+                if (Inputs.Length < i + 3) { break; }
+                int firstInput = Inputs[i];
+                int secondInput = Inputs[i + 1];
+                int thirdInput = Inputs[i + 2];
+
+                if (firstInput + 1 != secondInput){ continue; }
+
+                if (secondInput + 1 != thirdInput) { continue; }
+                return true;
+            }
+            return false;
+        }
+
+        static bool IsPrimeNumber(int Number)
+        {
+            for (int i = 2; i < 10; i++)
+            {
+                if (i == Number) { continue; }
+                if (Number % i == 0 )
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        static List<int> SieveOfEratosthenes(int n)
+        {
+            List<int> PrimeNumbers = new List<int> { };
+            for (int i = 2; i<n; i++)
+            {
+                if (IsPrimeNumber(i))
+                {
+                    PrimeNumbers.Add(i);
+                }
+            }
+            return PrimeNumbers;
+        }
+
+        static string ExtractString(string Input)
+        {
+            string[] SplittetInput = Input.Split("##");
+            if (SplittetInput.Length < 3) { return ""; }
+            return SplittetInput[1];
+        }
+
+
     }
 }
