@@ -1,0 +1,15 @@
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/bin/Debug/net7.0/basic 1
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/bin/Debug/net7.0/basic 1.deps.json
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/bin/Debug/net7.0/basic 1.runtimeconfig.json
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/bin/Debug/net7.0/basic 1.dll
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/bin/Debug/net7.0/basic 1.pdb
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.csproj.AssemblyReference.cache
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.AssemblyInfoInputs.cache
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.AssemblyInfo.cs
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.csproj.CoreCompileInputs.cache
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.dll
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/refint/basic 1.dll
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.pdb
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/basic 1.genruntimeconfig.cache
+/Users/marcusbager/Projects/basic 1/basic 1/basic 1/obj/Debug/net7.0/ref/basic 1.dll
