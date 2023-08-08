@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace basic
 {
@@ -69,9 +70,23 @@ namespace basic
 
             Console.WriteLine("ExtractString");
             Console.WriteLine(ExtractString("##dsa##"));
-            
 
+            Console.WriteLine("FullSequenceOfLetters");
+            Console.WriteLine(FullSequenceOfLetters("ds"));
+            Console.WriteLine("FullSequenceOfLetters");
+            Console.WriteLine(FullSequenceOfLetters("or"));
 
+            Console.WriteLine("SumAndAverage");
+            Console.WriteLine(SumAndAverage(11, 66));
+
+            DrawTriangle(10);
+
+            Console.WriteLine("ToThePowerOf");
+            Console.WriteLine(ToThePowerOf(-2, 3));
+            Console.WriteLine("ToThePowerOf");
+            Console.WriteLine(ToThePowerOf(5, 5));
+
+            CalculatorGame(2);
         }
 
         // Opgave 1
@@ -277,6 +292,185 @@ namespace basic
             return SplittetInput[1];
         }
 
+        static string FullSequenceOfLetters(string Input)
+        {
+            char letterA = Input.ToCharArray()[0];
+            char letterB = Input.ToCharArray()[1];
 
+            string letters = "";
+            for (char letter = letterA; letter <= letterB; letter++)
+            {
+                letters += letter;
+            }
+
+            return letters;
+        }
+
+        static string SumAndAverage(int Input1, int Input2)
+        {
+            double runs = Input2 - Input1 + 1;
+            double sum = 0;
+            for (int i = Input1; i <= Input2; i++)
+            {
+                sum += i;
+            }
+            double average = sum / runs;
+            return $"Sum: {sum}, Average: {average}";
+        }
+
+        static void DrawTriangle(int Lines)
+        {
+            int numberOfLines = Lines;
+            int maxLengt = numberOfLines * 2 - 1;
+            for (int i = 1; i < numberOfLines + 1; i++)
+            {
+                int numberOfStars = i * 2 - 1;
+                int numberOfSpacesBefore = (maxLengt - numberOfStars) / 2;
+                string line = "";
+                for (int n = 1; n < numberOfStars + numberOfSpacesBefore + 1; n++)
+                {
+                    if (n > numberOfSpacesBefore)
+                    {
+                        line += "*";
+                    }
+                    line += " ";
+                }
+                Console.WriteLine(line);
+            }
+        }
+
+        static double ToThePowerOf(double Value, double Power)
+        {
+            double ThePowerOf = Math.Pow(Value, Power);
+            return ThePowerOf;
+        }
+
+        // What difficulty do we use
+        static string ChooseDifficulty()
+        {
+            string difficulty = "";
+
+            Console.WriteLine("Please choose a difficulty (1-5):");
+            difficulty = Console.ReadLine();
+            while (difficulty != "1" && difficulty != "2" && difficulty != "3" && difficulty != "4" && difficulty != "5")
+            {
+                Console.WriteLine($"{difficulty} is not a vaild difficulty!");
+                difficulty = Console.ReadLine();
+            }
+            return difficulty;
+        }
+
+        // Asking the questions. And waiting for the answer
+        static bool CalculatorStep(int startNumber, int endNumber, int n)
+        {
+            bool Correct = false;
+            Random rnd = new Random();
+            List<string> opperations = new List<string> { "+", "*", "-", "/" };
+
+            int firstNumber = rnd.Next(startNumber, endNumber + 1);
+            int secondNumber = rnd.Next(startNumber, endNumber + 1);
+
+            while (firstNumber < secondNumber)
+            {
+                firstNumber = rnd.Next(startNumber, endNumber + 1);
+                secondNumber = rnd.Next(startNumber, endNumber + 1);
+            }
+
+            string opperation = opperations[rnd.Next(0, 4)];
+            double correctAnswer = 0;
+
+            switch (opperation)
+            {
+                case "*":
+                    correctAnswer = firstNumber * secondNumber;
+                    break;
+
+                case "/":
+                    correctAnswer = firstNumber / secondNumber;
+                    break;
+
+                case "+":
+                    correctAnswer = firstNumber + secondNumber;
+                    break;
+
+                case "-":
+                    correctAnswer = firstNumber - secondNumber;
+                    break;
+            }
+
+            for (int i = 1; i <= 3; i++)
+            {
+                Console.WriteLine($"({n}) Calculate: {firstNumber} {opperation} {secondNumber}");
+                string answer = Console.ReadLine();
+                if (answer == correctAnswer.ToString())
+                {
+                    Correct = true;
+                    break;
+                }
+                Console.WriteLine($"Wrong!");
+            }
+            if (!Correct)
+            {
+                Console.WriteLine($"Correct Answer = {correctAnswer}");
+            }
+            return Correct;
+        }
+
+        // Main Function to start game
+        static void CalculatorGame(int lengthOfGame)
+        {
+            string difficulty = ChooseDifficulty();
+            int points = 0;
+            int numberOfCorrects = 0;
+
+            for (int n = 1; n <= lengthOfGame; n++)
+            {
+                int lowestNumber = 1;
+                int highestNumber = 10;
+
+                if (difficulty == "2")
+                {
+                    highestNumber = 100;
+                }
+                else if (difficulty == "3")
+                {
+                    highestNumber = 1000;
+                }
+                else if (difficulty == "3")
+                {
+                    highestNumber = 1000;
+                }
+                else if (difficulty == "4")
+                {
+                    highestNumber = 9999;
+                }
+                else if (difficulty == "5")
+                {
+                    lowestNumber = -100;
+                    highestNumber = 100;
+                }
+
+
+                bool Correct = CalculatorStep(lowestNumber, highestNumber, n);
+                if (!Correct)
+                {
+                    Console.WriteLine("Too many Tries!");
+                    continue;
+                }
+                points += Int32.Parse(difficulty);
+                numberOfCorrects += 1;
+                Console.WriteLine("Correct!");
+
+            }
+
+            Console.WriteLine($"You got {points} point!\nAnd answered {numberOfCorrects} Correct");
+            Console.WriteLine("Would you like to play again? (y/n)");
+            string playAgain = Console.ReadLine();
+
+            if (playAgain.ToLower() == "y" || playAgain.ToLower() == "yes")
+            {
+                CalculatorGame(2);
+            }
+        }
     }
 }
