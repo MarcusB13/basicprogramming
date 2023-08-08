@@ -345,6 +345,8 @@ namespace basic
             return ThePowerOf;
         }
 
+
+
         // What difficulty do we use
         static string ChooseDifficulty()
         {
