@@ -86,7 +86,7 @@ namespace basic
             Console.WriteLine("ToThePowerOf");
             Console.WriteLine(ToThePowerOf(5, 5));
 
-            CalculatorGame(2);
+            CalculatorGame(2, 0, 0);
         }
 
         // Opgave 1
@@ -412,7 +412,7 @@ namespace basic
 
             for (int i = 1; i <= 3; i++)
             {
-                Console.WriteLine($"({n}) Calculate: {firstNumber} {opperation} {secondNumber}");
+                Console.WriteLine($"({n}) Calculate (Whole numbers only): {firstNumber} {opperation} {secondNumber}");
                 string answer = Console.ReadLine();
                 if (answer == correctAnswer.ToString())
                 {
@@ -431,7 +431,8 @@ namespace basic
         // The tabel Learner
         static bool TheTabelStep(int Tabel)
         {
-            for (int i = Tabel; i<=10; i++)
+            Console.WriteLine("Start the tabel");
+            for (int i = 1; i<=10; i++)
             {
                 string number = (i * Tabel).ToString();
                 string answer = Console.ReadLine();
@@ -441,6 +442,7 @@ namespace basic
                 {
                     if (Tries >= 3) { return false;  }
                     Tries += 1;
+                    Console.WriteLine($"Wrong Try Again. {Tries}");
                     answer = Console.ReadLine();
                 }
                 continue;
@@ -449,11 +451,11 @@ namespace basic
         }
 
         // Main Function to start game
-        static void CalculatorGame(int lengthOfGame)
+        static void CalculatorGame(int lengthOfGame, int startPoints, int startCorrect)
         {
             string difficulty = ChooseDifficulty();
-            int points = 0;
-            int numberOfCorrects = 0;
+            int points = startPoints;
+            int numberOfCorrects = startCorrect;
             bool Correct = false;
 
             for (int n = 1; n <= lengthOfGame; n++)
@@ -487,6 +489,8 @@ namespace basic
                     Correct = TheTabelStep(3);
                     if (Correct)
                     {
+                        points += 3;
+                        numberOfCorrects += 1;
                         Console.WriteLine("Congratulations. You did it.");
                         break;
                     }
@@ -497,6 +501,15 @@ namespace basic
                 else if (difficulty == "7")
                 {
                     Correct = TheTabelStep(5);
+                    if (Correct)
+                    {
+                        points += 5;
+                        numberOfCorrects += 1;
+                        Console.WriteLine("Congratulations. You did it.");
+                        break;
+                    }
+                    Console.WriteLine("Too many Tries!");
+                    break;
                 }
 
 
@@ -509,16 +522,15 @@ namespace basic
                 points += Int32.Parse(difficulty);
                 numberOfCorrects += 1;
                 Console.WriteLine("Correct!");
-
             }
 
             Console.WriteLine($"You got {points} point!\nAnd answered {numberOfCorrects} Correct");
-            Console.WriteLine("Would you like to play again? (y/n)");
+            Console.WriteLine("Would you like to continue playing? (y/n)");
             string playAgain = Console.ReadLine();
 
             if (playAgain.ToLower() == "y" || playAgain.ToLower() == "yes")
             {
-                CalculatorGame(2);
+                CalculatorGame(2, points, numberOfCorrects);
             }
         }
     }
