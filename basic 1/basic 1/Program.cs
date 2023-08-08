@@ -353,13 +353,13 @@ namespace basic
             string difficulty = "";
 
             Console.WriteLine("Please choose a difficulty (1-5):");
-            Console.WriteLine("1 (1 - 10):");
-            Console.WriteLine("2 (1 - 100):");
-            Console.WriteLine("3 (1 - 1000):");
-            Console.WriteLine("4 (1 - 9999):");
-            Console.WriteLine("5 ( (-)100 - 100 ):");
-            Console.WriteLine("6 (3 the tabel):");
-            Console.WriteLine("7 (5 the tabel):");
+            Console.WriteLine("1 (1 - 10)");
+            Console.WriteLine("2 (1 - 100)");
+            Console.WriteLine("3 (1 - 1000)");
+            Console.WriteLine("4 (1 - 9999)");
+            Console.WriteLine("5 ( (-)100 - 100 )");
+            Console.WriteLine("6 (3 the tabel)");
+            Console.WriteLine("7 (5 the tabel)");
 
             difficulty = Console.ReadLine();
             while (difficulty != "1" && difficulty != "2" && difficulty != "3"
