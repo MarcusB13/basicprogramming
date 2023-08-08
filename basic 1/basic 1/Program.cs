@@ -353,8 +353,18 @@ namespace basic
             string difficulty = "";
 
             Console.WriteLine("Please choose a difficulty (1-5):");
+            Console.WriteLine("1 (1 - 10):");
+            Console.WriteLine("2 (1 - 100):");
+            Console.WriteLine("3 (1 - 1000):");
+            Console.WriteLine("4 (1 - 9999):");
+            Console.WriteLine("5 ( (-)100 - 100 ):");
+            Console.WriteLine("6 (3 the tabel):");
+            Console.WriteLine("7 (5 the tabel):");
+
             difficulty = Console.ReadLine();
-            while (difficulty != "1" && difficulty != "2" && difficulty != "3" && difficulty != "4" && difficulty != "5")
+            while (difficulty != "1" && difficulty != "2" && difficulty != "3"
+                && difficulty != "4" && difficulty != "5" && difficulty != "6"
+                && difficulty != "7")
             {
                 Console.WriteLine($"{difficulty} is not a vaild difficulty!");
                 difficulty = Console.ReadLine();
@@ -418,12 +428,33 @@ namespace basic
             return Correct;
         }
 
+        // The tabel Learner
+        static bool TheTabelStep(int Tabel)
+        {
+            for (int i = Tabel; i<=10; i++)
+            {
+                string number = (i * Tabel).ToString();
+                string answer = Console.ReadLine();
+
+                int Tries = 0;
+                while (answer != number)
+                {
+                    if (Tries >= 3) { return false;  }
+                    Tries += 1;
+                    answer = Console.ReadLine();
+                }
+                continue;
+            }
+            return true;
+        }
+
         // Main Function to start game
         static void CalculatorGame(int lengthOfGame)
         {
             string difficulty = ChooseDifficulty();
             int points = 0;
             int numberOfCorrects = 0;
+            bool Correct = false;
 
             for (int n = 1; n <= lengthOfGame; n++)
             {
@@ -451,9 +482,25 @@ namespace basic
                     lowestNumber = -100;
                     highestNumber = 100;
                 }
+                else if (difficulty == "6")
+                {
+                    Correct = TheTabelStep(3);
+                    if (Correct)
+                    {
+                        Console.WriteLine("Congratulations. You did it.");
+                        break;
+                    }
+                    Console.WriteLine("Too many Tries!");
+                    break;
+
+                }
+                else if (difficulty == "7")
+                {
+                    Correct = TheTabelStep(5);
+                }
 
 
-                bool Correct = CalculatorStep(lowestNumber, highestNumber, n);
+                Correct = CalculatorStep(lowestNumber, highestNumber, n);
                 if (!Correct)
                 {
                     Console.WriteLine("Too many Tries!");
