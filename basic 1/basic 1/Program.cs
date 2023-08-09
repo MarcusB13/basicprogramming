@@ -9,35 +9,61 @@ namespace basic
     {
         static void Main(string[] args)
         {
+            // Add
             Console.WriteLine("add");
             Console.WriteLine(add(10, 2, 2));
+
+            // Calcius to Fahrenheit
             Console.WriteLine("celciustofahrenheit");
             Console.WriteLine(celciustofahrenheit(100));
+
+            // Operataions
             Console.WriteLine("ElementaryOperations");
             Console.WriteLine(ElementaryOperations(3, 8));
+
+            // Is result the same
             Console.WriteLine("IsResultTheSame");
             Console.WriteLine(IsResultTheSame(2/1, 4/4));
+
+            // Modulo Operations
             Console.WriteLine("ModuloOperations");
             Console.WriteLine(ModuloOperations(8, 5, 2));
+
+            // Cube of
             Console.WriteLine("CubeOf");
             Console.WriteLine(CubeOf(-5.5));
+
+            // Swab inputs
             Console.WriteLine("SwapTwoNumbers");
             Console.WriteLine(SwapTwoNumbers(5, 10));
+
+            // Abseloute value
             Console.WriteLine("AbsoluteValue");
             Console.WriteLine(AbsoluteValue(-10));
+
+            // Is divisible by
             Console.WriteLine("DivisibleBy2Or3");
             Console.WriteLine(DivisibleBy2Or3(2, 90));
             Console.WriteLine("DivisibleBy2Or3");
             Console.WriteLine(DivisibleBy2Or3(7, 13));
+
+            // Only uppercase letters
             Console.WriteLine("IfConsistsOfUppercaseLetters");
             Console.WriteLine(IfConsistsOfUppercaseLetters("MARCUS"));
+
+            // Is greather than third one
             Console.WriteLine("IsGratherThanThirdOne");
             Console.WriteLine(IsGratherThanThirdOne(new double[] {1,2,3}));
+
+            // Is even number
             Console.WriteLine("IsNumberEven");
             Console.WriteLine(IsNumberEven(3));
+
+            // Is sorted Ascending
             Console.WriteLine("IfSortedAscending");
             Console.WriteLine(IfSortedAscending(new double[] {2,4,3,7}));
 
+            // Positive Negetive or Zero
             Console.WriteLine("PositiveNegativeOrZero");
             Console.WriteLine(PositiveNegativeOrZero(10));
             Console.WriteLine("PositiveNegativeOrZero");
@@ -45,83 +71,102 @@ namespace basic
             Console.WriteLine("PositiveNegativeOrZero");
             Console.WriteLine(PositiveNegativeOrZero(-10));
 
+            // Is leap year
             Console.WriteLine("isLeapYear");
             Console.WriteLine(isLeapYear(2016));
             Console.WriteLine("isLeapYear");
             Console.WriteLine(isLeapYear(2018));
 
+            // Numbers table
             WriteNumbersTable(1);
 
+            // Find biggest number
             int[] ar = { 1, 5, 7, 22 }; 
             Console.WriteLine("TheBiggestNumber");
             Console.WriteLine(ar.Max());
 
+            // How many times is two 7's next to eachother
             Console.WriteLine("Two7sNextToEachOther");
             Console.WriteLine(Two7sNextToEachOther(new int[] { 8, 2, 5, 7, 9, 0, 7, 7, 3, 1 }));
             Console.WriteLine("Two7sNextToEachOther");
             Console.WriteLine(Two7sNextToEachOther(new int[] { 9, 4, 5, 3, 7, 7, 7, 3, 2, 5, 7, 7 }));
 
+            // How many times does the number increase by 1 three times in a row
             Console.WriteLine("ThreeIncreasingAdjacent");
             Console.WriteLine(ThreeIncreasingAdjacent(new int[] { 45, 23, 44, 68, 65, 70, 80, 81, 82 }));
             Console.WriteLine("ThreeIncreasingAdjacent");
             Console.WriteLine(ThreeIncreasingAdjacent(new int[] { 7, 3, 5, 8, 9, 3, 1, 4 }));
 
+            // Find all prime numbers from 2 -> n
             Console.WriteLine("SieveOfEratosthenes");
             SieveOfEratosthenes(30).ForEach(x => Console.WriteLine(x.ToString() + " "));
 
+            // Extract string between ## and ##
             Console.WriteLine("ExtractString");
             Console.WriteLine(ExtractString("##dsa##"));
 
+            // Get all letters in the alfabet between the two letters
             Console.WriteLine("FullSequenceOfLetters");
             Console.WriteLine(FullSequenceOfLetters("ds"));
             Console.WriteLine("FullSequenceOfLetters");
             Console.WriteLine(FullSequenceOfLetters("or"));
 
+            // Get the sum and average from n -> n
             Console.WriteLine("SumAndAverage");
             Console.WriteLine(SumAndAverage(11, 66));
 
+            // Draw a triangle of *'s
             DrawTriangle(10);
 
+            // To the power of
             Console.WriteLine("ToThePowerOf");
             Console.WriteLine(ToThePowerOf(-2, 3));
             Console.WriteLine("ToThePowerOf");
             Console.WriteLine(ToThePowerOf(5, 5));
 
+            // Add a separator
             Console.WriteLine("AddSeparator");
             Console.WriteLine(AddSeparator("ABCD", "^"));
             Console.WriteLine("AddSeparator");
             Console.WriteLine(AddSeparator("chocolate", "-"));
 
+            // Is the string the same as backwards
             Console.WriteLine("IsPalindrome");
             Console.WriteLine(IsPalindrome("eye"));
             Console.WriteLine("IsPalindrome");
             Console.WriteLine(IsPalindrome("home"));
 
+            // What is the length of the strength
             Console.WriteLine("LengthOfAString");
             Console.WriteLine(LengthOfAString("computer"));
 
+            // Reverse a string
             Console.WriteLine("StringInReverseOrder");
             Console.WriteLine(StringInReverseOrder("qwerty"));
 
+            // How many words in sentence
             Console.WriteLine("NumberOfWords");
             Console.WriteLine(NumberOfWords("This is sample sentence"));
 
+            // Revert words
             Console.WriteLine("RevertWordsOrder");
             Console.WriteLine(RevertWordsOrder("This is sample sentence"));
 
+            // How many times is the substring in the sentence
             Console.WriteLine("HowManyOccurrences");
             Console.WriteLine(HowManyOccurrences("do it now", "do"));
 
+            // Sort the chars in descending order
             Console.WriteLine("SortCharactersDescending");
             Console.WriteLine(SortCharactersDescending("onomatopoeia"));
 
+            // Compress a string
             Console.WriteLine("CompressString");
             Console.WriteLine(CompressString("kkkktttrrrrrrrrrr"));
-
             Console.WriteLine("CompressString");
             Console.WriteLine(CompressString("p555ppp7www"));
 
-            
+            // Calculator Game
             CalculatorGame(2, 0, 0);
         }
 
