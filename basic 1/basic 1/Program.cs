@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.Metrics;
+using System.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace basic
@@ -86,6 +87,41 @@ namespace basic
             Console.WriteLine("ToThePowerOf");
             Console.WriteLine(ToThePowerOf(5, 5));
 
+            Console.WriteLine("AddSeparator");
+            Console.WriteLine(AddSeparator("ABCD", "^"));
+            Console.WriteLine("AddSeparator");
+            Console.WriteLine(AddSeparator("chocolate", "-"));
+
+            Console.WriteLine("IsPalindrome");
+            Console.WriteLine(IsPalindrome("eye"));
+            Console.WriteLine("IsPalindrome");
+            Console.WriteLine(IsPalindrome("home"));
+
+            Console.WriteLine("LengthOfAString");
+            Console.WriteLine(LengthOfAString("computer"));
+
+            Console.WriteLine("StringInReverseOrder");
+            Console.WriteLine(StringInReverseOrder("qwerty"));
+
+            Console.WriteLine("NumberOfWords");
+            Console.WriteLine(NumberOfWords("This is sample sentence"));
+
+            Console.WriteLine("RevertWordsOrder");
+            Console.WriteLine(RevertWordsOrder("This is sample sentence"));
+
+            Console.WriteLine("HowManyOccurrences");
+            Console.WriteLine(HowManyOccurrences("do it now", "do"));
+
+            Console.WriteLine("SortCharactersDescending");
+            Console.WriteLine(SortCharactersDescending("onomatopoeia"));
+
+            Console.WriteLine("CompressString");
+            Console.WriteLine(CompressString("kkkktttrrrrrrrrrr"));
+
+            Console.WriteLine("CompressString");
+            Console.WriteLine(CompressString("p555ppp7www"));
+
+            
             CalculatorGame(2, 0, 0);
         }
 
@@ -532,6 +568,76 @@ namespace basic
             {
                 CalculatorGame(2, points, numberOfCorrects);
             }
+        }
+
+
+        // Opgave 3
+        static string AddSeparator(string Input, string seperator)
+        {
+            char[] Inputs = Input.ToCharArray();
+            return string.Join(seperator, Inputs);
+        }
+
+        static bool IsPalindrome(string Input)
+        {
+            return string.Join("", Input.ToCharArray().Reverse()) == Input;
+        }
+
+        static int LengthOfAString(string Input)
+        {
+            return Input.Length;
+        }
+
+        static string StringInReverseOrder(string Input)
+        {
+            return string.Join("", Input.ToCharArray().Reverse());
+        }
+
+        static int NumberOfWords(string Input)
+        {
+            string[] words = Input.Split(" ");
+            return words.Length;
+        }
+
+        static string RevertWordsOrder(string Input)
+        {
+            string[] words = Input.Split(" ");
+            return string.Join(" ", words.Reverse());
+        }
+
+        static int HowManyOccurrences(string Input, string substring)
+        {
+            int occurrences = Input.Split(substring).Length - 1;
+            return occurrences;
+        }
+
+        static string SortCharactersDescending(string Input)
+        {
+            char[] characters = Input.ToCharArray();
+            Array.Sort(characters);
+            return string.Join("", characters.Reverse());
+        }
+
+        static string CompressString(string input)
+        {
+            int currentCount = 0;
+            char currentChar = ' ';
+            string compressedInput = "";
+
+            for (int i = 0; i<input.Length; i++)
+            {
+                char letter = input[i];
+                if (currentChar == ' ') { currentChar = letter; }
+                if(currentChar == letter)
+                {
+                    currentCount++;
+                    if (i != input.Length - 1) { continue; }
+                }
+                compressedInput += $"{currentChar}{currentCount}";
+                currentChar = letter;
+                currentCount = 1;
+            }
+            return compressedInput;
         }
     }
 }
