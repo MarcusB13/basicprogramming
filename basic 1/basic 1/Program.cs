@@ -5,9 +5,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace basic
 {
 
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Add
             Console.WriteLine("add");
@@ -171,70 +171,68 @@ namespace basic
         }
 
         // Opgave 1
-        static int add (int firstNumber, int secondNumber, int lastNumber)
+        public static int add (int firstNumber, int secondNumber, int lastNumber)
         {
             return (firstNumber + secondNumber) * lastNumber;
         }
 
-        static string celciustofahrenheit (int celcius)
+        public static string celciustofahrenheit (int celcius)
         {
             double fahrenheit = (celcius * 9 / 5) + 32;
 
-            if (fahrenheit < -271.15)
-            {
-                return "Temperature below absolute zero!";
-            }
+            // If the number is below Absolute 0 return this string
+            if (fahrenheit < -271.15) { return "Temperature below absolute zero!"; }
 
             return $"T = {fahrenheit}F";
         }
 
-        static string ElementaryOperations (double firstNumber, double secondNumber)
+        public static string ElementaryOperations (double firstNumber, double secondNumber)
         {
             double addition = firstNumber + secondNumber;
             double substraction = firstNumber - secondNumber;
             double multiplication = firstNumber * secondNumber;
             double devision = 0;
-            if (firstNumber != 0 && secondNumber != 0)
-            {
-               devision = firstNumber / secondNumber;
-            }
 
+            if (firstNumber != 0 && secondNumber != 0) { devision = firstNumber / secondNumber; }
             return $"{addition}, {substraction}, {multiplication}, {devision}";
         }
 
-        static bool IsResultTheSame(double firstOperations, double secondOperations)
+        public static bool IsResultTheSame(double firstOperations, double secondOperations)
         {
             bool isTheSame = firstOperations == secondOperations;
             return isTheSame;
         }
 
-        static double ModuloOperations (double firstNumber, double secondNumber, double ThirdNumber)
+        public static double ModuloOperations (double firstNumber, double secondNumber, double ThirdNumber)
         {
             double modulodividedby = (firstNumber % secondNumber) % ThirdNumber;
             return modulodividedby;
         }
 
-        static double CubeOf(double Number)
+        public static double CubeOf(double Number)
         {
-            double cubeOf = Math.Pow(Number, 3);
-            return cubeOf;
+            return Math.Pow(Number, 3);
         }
 
-        static string SwapTwoNumbers(double a, double b)
+        public static string SwapTwoNumbers(double a, double b)
         {
-            return $"Before: a = {a}, b = {b}; After: a = {b}, b = {a}";
+            string before = $"Before: a = {a}, b = {b}";
+            string after = $" After: a = {b}, b = {a}";
+
+            return $"{before}; {after}";
         }
 
 
         // Opgave 2
-        static double AbsoluteValue(double value)
+        public static double AbsoluteValue(double value)
         {
             return value * -1;
         }
 
-        static double DivisibleBy2Or3(double firstNumber, double secondNumber)
+        public static double DivisibleBy2Or3(double firstNumber, double secondNumber)
         {
-            if (firstNumber % 2 == 0 && firstNumber % 3 == 0 && secondNumber % 2 == 0 && secondNumber % 3 == 0)
+            if (firstNumber % 2 == 0 && firstNumber % 3 == 0
+                && secondNumber % 2 == 0 && secondNumber % 3 == 0)
             {
                 return firstNumber * secondNumber;
             }
@@ -242,30 +240,33 @@ namespace basic
             return firstNumber + secondNumber;
         }
 
-        static bool IfConsistsOfUppercaseLetters(string Input)
+        public static bool IfConsistsOfUppercaseLetters(string Input)
         {
             string uppercaseInput = Input.ToUpper();
             return uppercaseInput == Input;
         }
 
-        static bool IsGratherThanThirdOne(double[] Input)
+        public static bool IsGratherThanThirdOne(double[] Input)
         {
             double multiplication = Input[0] * Input[1];
             double sum = Input[0] + Input[1];
             return sum > Input[2] || multiplication > Input[2];
         }
 
-        static bool IsNumberEven(double Input)
+        public static bool IsNumberEven(double Input)
         {
             return Input % 2 == 0;
         }
 
-        static bool IfSortedAscending(double[] Inputs)
+        public static bool IfSortedAscending(double[] Inputs)
         {
             for(int i = 0; i<Inputs.Length; i++)
             {
-                if (i == 0) { continue; } // First Value
-                if (Inputs[i - 1] <= Inputs[i]) // Forrige mindre end nuværende
+                // First Value
+                if (i == 0) { continue; }
+
+                // Last value smaller than this value
+                if (Inputs[i - 1] <= Inputs[i])
                 {
                     continue;
                 }
@@ -274,7 +275,7 @@ namespace basic
             return true;
         }
 
-        static string PositiveNegativeOrZero(double Input)
+        public static string PositiveNegativeOrZero(double Input)
         {
             string StringToReturn = "Zero";
             if (Input > 0) { StringToReturn = "positive"; }
@@ -284,14 +285,14 @@ namespace basic
             return StringToReturn;
         }
 
-        static bool isLeapYear(int year)
+        public static bool isLeapYear(int year)
         {
             return year % 4 == 0;
         }
 
         // Opgave 3
 
-        static void WriteNumbersTable(int tabel)
+        public static void WriteNumbersTable(int tabel)
         {
             string line = "";
             for (int i = 1; i<11; i++)
@@ -309,7 +310,7 @@ namespace basic
             }
         }
 
-        static int Two7sNextToEachOther(int[] Inputs)
+        public static int Two7sNextToEachOther(int[] Inputs)
         {
             int SevensNextToEachOther = 0;
 
@@ -323,7 +324,7 @@ namespace basic
             return SevensNextToEachOther;
         }
 
-        static bool ThreeIncreasingAdjacent(int[] Inputs)
+        public static bool ThreeIncreasingAdjacent(int[] Inputs)
         {
             for(int i = 0; i<Inputs.Length; i++)
             {
@@ -340,7 +341,7 @@ namespace basic
             return false;
         }
 
-        static bool IsPrimeNumber(int Number)
+        public static bool IsPrimeNumber(int Number)
         {
             for (int i = 2; i < 10; i++)
             {
@@ -353,7 +354,7 @@ namespace basic
             return true;
         }
 
-        static List<int> SieveOfEratosthenes(int n)
+        public static List<int> SieveOfEratosthenes(int n)
         {
             List<int> PrimeNumbers = new List<int> { };
             for (int i = 2; i<n; i++)
@@ -366,14 +367,14 @@ namespace basic
             return PrimeNumbers;
         }
 
-        static string ExtractString(string Input)
+        public static string ExtractString(string Input)
         {
             string[] SplittetInput = Input.Split("##");
             if (SplittetInput.Length < 3) { return ""; }
             return SplittetInput[1];
         }
 
-        static string FullSequenceOfLetters(string Input)
+        public static string FullSequenceOfLetters(string Input)
         {
             char letterA = Input.ToCharArray()[0];
             char letterB = Input.ToCharArray()[1];
@@ -387,7 +388,7 @@ namespace basic
             return letters;
         }
 
-        static string SumAndAverage(int Input1, int Input2)
+        public static string SumAndAverage(int Input1, int Input2)
         {
             double runs = Input2 - Input1 + 1;
             double sum = 0;
@@ -399,7 +400,7 @@ namespace basic
             return $"Sum: {sum}, Average: {average}";
         }
 
-        static void DrawTriangle(int Lines)
+        public static void DrawTriangle(int Lines)
         {
             int numberOfLines = Lines;
             int maxLengt = numberOfLines * 2 - 1;
@@ -420,7 +421,7 @@ namespace basic
             }
         }
 
-        static double ToThePowerOf(double Value, double Power)
+        public static double ToThePowerOf(double Value, double Power)
         {
             double ThePowerOf = Math.Pow(Value, Power);
             return ThePowerOf;
@@ -429,7 +430,7 @@ namespace basic
 
 
         // What difficulty do we use
-        static string ChooseDifficulty()
+        public static string ChooseDifficulty()
         {
             string difficulty = "";
 
@@ -454,7 +455,7 @@ namespace basic
         }
 
         // Asking the questions. And waiting for the answer
-        static bool CalculatorStep(int startNumber, int endNumber, int n)
+        public static bool CalculatorStep(int startNumber, int endNumber, int n)
         {
             bool Correct = false;
             Random rnd = new Random();
@@ -510,7 +511,7 @@ namespace basic
         }
 
         // The tabel Learner
-        static bool TheTabelStep(int Tabel)
+        public static bool TheTabelStep(int Tabel)
         {
             Console.WriteLine("Start the tabel");
             for (int i = 1; i<=10; i++)
@@ -532,7 +533,7 @@ namespace basic
         }
 
         // Main Function to start game
-        static void CalculatorGame(int lengthOfGame, int startPoints, int startCorrect)
+        public static void CalculatorGame(int lengthOfGame, int startPoints, int startCorrect)
         {
             string difficulty = ChooseDifficulty();
             int points = startPoints;
@@ -617,53 +618,53 @@ namespace basic
 
 
         // Opgave 3
-        static string AddSeparator(string Input, string seperator)
+        public static string AddSeparator(string Input, string seperator)
         {
             char[] Inputs = Input.ToCharArray();
             return string.Join(seperator, Inputs);
         }
 
-        static bool IsPalindrome(string Input)
+        public static bool IsPalindrome(string Input)
         {
             return string.Join("", Input.ToCharArray().Reverse()) == Input;
         }
 
-        static int LengthOfAString(string Input)
+        public static int LengthOfAString(string Input)
         {
             return Input.Length;
         }
 
-        static string StringInReverseOrder(string Input)
+        public static string StringInReverseOrder(string Input)
         {
             return string.Join("", Input.ToCharArray().Reverse());
         }
 
-        static int NumberOfWords(string Input)
+        public static int NumberOfWords(string Input)
         {
             string[] words = Input.Split(" ");
             return words.Length;
         }
 
-        static string RevertWordsOrder(string Input)
+        public static string RevertWordsOrder(string Input)
         {
             string[] words = Input.Split(" ");
             return string.Join(" ", words.Reverse());
         }
 
-        static int HowManyOccurrences(string Input, string substring)
+        public static int HowManyOccurrences(string Input, string substring)
         {
             int occurrences = Input.Split(substring).Length - 1;
             return occurrences;
         }
 
-        static string SortCharactersDescending(string Input)
+        public static string SortCharactersDescending(string Input)
         {
             char[] characters = Input.ToCharArray();
             Array.Sort(characters);
             return string.Join("", characters.Reverse());
         }
 
-        static string CompressString(string input)
+        public static string CompressString(string input)
         {
             int currentCount = 0;
             char currentChar = ' ';
