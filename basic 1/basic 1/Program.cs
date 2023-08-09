@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics.Metrics;
 using System.Linq;
+using basic_1;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using static basic_1.Dice; // Import Dice Class from Dice.cs
 
 namespace basic
 {
@@ -150,7 +152,7 @@ namespace basic
 
             // Revert words
             Console.WriteLine("RevertWordsOrder");
-            Console.WriteLine(RevertWordsOrder("This is sample sentence"));
+            Console.WriteLine(RevertWordsOrder("Doe John."));
 
             // How many times is the substring in the sentence
             Console.WriteLine("HowManyOccurrences");
@@ -166,6 +168,10 @@ namespace basic
             Console.WriteLine("CompressString");
             Console.WriteLine(CompressString("p555ppp7www"));
 
+            Console.WriteLine("FindTheOddOne");
+            int[] array = { 1, 2, 3, 4, 2, 4, 3, 1, 5, 6, 6};
+            Console.WriteLine(FindTheOddOne(array));
+            
             // Calculator Game
             CalculatorGame(2, 0, 0);
         }
@@ -631,7 +637,12 @@ namespace basic
 
         public static int LengthOfAString(string Input)
         {
-            return Input.Length;
+            int length = 0;
+            foreach(char lettet in Input)
+            {
+                length++;
+            }
+            return length;
         }
 
         public static string StringInReverseOrder(string Input)
@@ -684,6 +695,28 @@ namespace basic
                 currentCount = 1;
             }
             return compressedInput;
+        }
+
+        public static int? FindTheOddOne(int[] Input)
+        {
+            int? oddOne = null;
+            int? previous = null;
+            Array.Sort(Input);
+
+            for (int i = 0; i < Input.Length; i++)
+            {
+                int current = Input[i];
+                int next = Input[i + 1];
+                if (current == next || current == previous)
+                {
+                    previous = current;
+                    continue;
+                }
+
+                oddOne = current;
+                break;
+            }
+            return oddOne;
         }
     }
 }
