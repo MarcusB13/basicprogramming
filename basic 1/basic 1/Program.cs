@@ -171,6 +171,9 @@ namespace basic
             Console.WriteLine("FindTheOddOne");
             int[] array = { 1, 2, 3, 4, 2, 4, 3, 1, 5, 6, 6};
             Console.WriteLine(FindTheOddOne(array));
+
+            Console.WriteLine("HowManyThrowsToGetSix");
+            Console.WriteLine(HowManyThrowsToGetSix(6));
             
             // Calculator Game
             CalculatorGame(2, 0, 0);
@@ -717,6 +720,41 @@ namespace basic
                 break;
             }
             return oddOne;
+        }
+
+        public static bool CheckAllDices(List<Dice> cubes)
+        {
+            bool allCubesIsSix = true;
+            foreach (Dice cube in cubes)
+            {
+                if (cube.Current != 6)
+                {
+                    allCubesIsSix = false;
+                    break;
+                }
+            }
+            return allCubesIsSix;
+        }
+
+        public static int HowManyThrowsToGetSix(int numberOfCubes)
+        {
+            List<Dice> cubes = new List<Dice> { };
+
+            for (int i = 0; i < numberOfCubes; i++)
+            {
+                cubes.Add(new Dice(6));
+            }
+
+            int rolls = 0;
+            while (CheckAllDices(cubes) != true)
+            {
+                rolls++;
+                for (int i = 0; i < numberOfCubes; i++)
+                {
+                    cubes[i].Roll();
+                }
+            }
+            return rolls;
         }
     }
 }

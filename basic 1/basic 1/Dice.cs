@@ -26,7 +26,7 @@ namespace basic_1
 		public int Roll()
 		{
 			Random rnd = new Random();
-			int rolled = rnd.Next(1, sides);
+			int rolled = rnd.Next(1, sides + 1);
 			throws++;
 			current = rolled;
 
