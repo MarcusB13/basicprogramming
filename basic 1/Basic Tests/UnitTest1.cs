@@ -13,9 +13,10 @@ namespace Basic_Tests
             Assert.Equal(ExpectedResult, Result);
         }
 
+        [Fact]
         public void TestAdd()
         {
-            int ExpectedResult = 12;
+            int ExpectedResult = 27;
             int InputNumberOne = 7;
             int InputNumberTwo = 2;
             int InputNumberThree = 3;
@@ -27,6 +28,7 @@ namespace Basic_Tests
             Assert.NotEqual(ExpectedResult, TestWrongResult);
         }
 
+        [Fact]
         public void TestIsResultTheSame()
         {
             bool ExpectedResult = true;
@@ -34,11 +36,12 @@ namespace Basic_Tests
             bool result = basic.Program.IsResultTheSame(1 / 3, 2 / 6);
             Assert.Equal(ExpectedResult, result);
 
-            ExpectedResult = false;
-            result = basic.Program.IsResultTheSame(1 / 6, 2 / 6);
-            Assert.Equal(ExpectedResult, result);
+            bool secondExpectedResult = false;
+            bool seconResult = basic.Program.IsResultTheSame((double) 1 / 6, (double) 2 / 6);
+            Assert.Equal(secondExpectedResult, seconResult);
         }
 
+        [Fact]
         public void TestCubeOf()
         {
             double ExpectedResult = 125;
@@ -48,12 +51,23 @@ namespace Basic_Tests
             Assert.Equal(ExpectedResult, result);
         }
 
+        [Fact]
         public void TestFullSequenceOfLetters()
         {
             string ExpectedResult = "defghijklmn";
             string Input = "dn";
 
             string result = basic.Program.FullSequenceOfLetters(Input);
+            Assert.Equal(ExpectedResult, result);
+        }
+
+        [Fact]
+        public void TestOddOneOut()
+        {
+            int? ExpectedResult = 6;
+            int[] Input = { 2, 6, 5, 2, 7, 5, 7, 8, 3, 9, 9, 3, 8 };
+
+            int? result = basic.Program.FindTheOddOne(Input);
             Assert.Equal(ExpectedResult, result);
         }
     }

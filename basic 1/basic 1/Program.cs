@@ -25,7 +25,9 @@ namespace basic
 
             // Is result the same
             Console.WriteLine("IsResultTheSame");
-            Console.WriteLine(IsResultTheSame(2/1, 4/4));
+            Console.WriteLine(IsResultTheSame((double) 2 /1, (double) 4 /4));
+            Console.WriteLine("IsResultTheSame");
+            Console.WriteLine(IsResultTheSame((double) 1/6, (double) 2 /6));
 
             // Modulo Operations
             Console.WriteLine("ModuloOperations");
@@ -212,6 +214,9 @@ namespace basic
         public static bool IsResultTheSame(double firstOperations, double secondOperations)
         {
             bool isTheSame = firstOperations == secondOperations;
+            Console.WriteLine($"Is result the same = {isTheSame}");
+            Console.WriteLine($"First = {firstOperations}");
+            Console.WriteLine($"Second = {secondOperations}");
             return isTheSame;
         }
 
