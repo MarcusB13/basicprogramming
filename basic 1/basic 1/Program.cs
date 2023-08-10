@@ -173,7 +173,10 @@ namespace basic
             Console.WriteLine(FindTheOddOne(array));
 
             Console.WriteLine("HowManyThrowsToGetSix");
-            Console.WriteLine(HowManyThrowsToGetSix(6));
+            Console.WriteLine("How many cubes would you like to use?:");
+            string numberOfCubesString = Console.ReadLine();
+            int numberOfCubes = Int32.Parse(numberOfCubesString);
+            Console.WriteLine(HowManyThrowsToGetSix(numberOfCubes));
             
             // Calculator Game
             CalculatorGame(2, 0, 0);
@@ -752,7 +755,9 @@ namespace basic
                 for (int i = 0; i < numberOfCubes; i++)
                 {
                     cubes[i].Roll();
+                    Console.Write($"{cubes[i].Current} ");
                 }
+                Console.WriteLine();
             }
             return rolls;
         }
