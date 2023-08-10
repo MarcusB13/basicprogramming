@@ -15,6 +15,12 @@ namespace basic
             Console.WriteLine("add");
             Console.WriteLine(add(10, 2, 2));
 
+            // AddTwoNumbers
+            Console.WriteLine("AddTwoNumbers");
+            try{ Console.WriteLine(AddTwoNumbers(200000, 150000)); } // Try to add two numbers
+            catch (Exception ex) { Console.WriteLine(ex); } // If numbers does not fit Int32, then an error is thrown
+
+            
             // Calcius to Fahrenheit
             Console.WriteLine("celciustofahrenheit");
             Console.WriteLine(celciustofahrenheit(100));
@@ -170,10 +176,12 @@ namespace basic
             Console.WriteLine("CompressString");
             Console.WriteLine(CompressString("p555ppp7www"));
 
+            // Find the number that is only one of
             Console.WriteLine("FindTheOddOne");
             int[] array = { 1, 2, 3, 4, 2, 4, 3, 1, 5, 6, 6};
             Console.WriteLine(FindTheOddOne(array));
 
+            // Throw x number o dices, and see how many throws till you throw straight 6's
             Console.WriteLine("HowManyThrowsToGetSix");
             Console.WriteLine("How many cubes would you like to use?:");
             string numberOfCubesString = Console.ReadLine();
@@ -188,6 +196,44 @@ namespace basic
         public static int add (int firstNumber, int secondNumber, int lastNumber)
         {
             return (firstNumber + secondNumber) * lastNumber;
+        }
+
+        public static int AddTwoNumbers(int a, int b)
+        {
+            bool error = false;
+            string errorMessage = "";
+
+            int addition = a + b;
+            bool aIsPositive = a > 0;
+            bool bIsPositive = b > 0;
+
+
+            if (a == int.MaxValue || b == int.MaxValue)
+            {
+                error = true;
+            }
+            if (bIsPositive && aIsPositive)
+            {
+                if (addition < 0)
+                {
+                    error = true;
+                    errorMessage = "Value is higher than int max value";
+                }
+            } else
+            {
+                if (addition > 0)
+                {
+                    errorMessage = "Value is lower than int max value";
+                    error = true;
+                }
+            }
+
+
+            if (error)
+            {
+                throw new Exception(errorMessage);
+            }
+            return addition;
         }
 
         public static string celciustofahrenheit (int celcius)
