@@ -1,5 +1,32 @@
 ﻿<Properties StartupConfiguration="{08FA79D0-F84E-4955-9FEB-A30B8A5FE10F}|Default">
-  <MonoDevelop.Ide.ItemProperties.Basic_220Tests FirstBuild="True" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.basic_2201 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="basic 1/Dice.cs">
+    <Files>
+      <File FileName="basic 1/Dice.cs" Line="87" Column="14" />
+      <File FileName="basic 1/Program.cs" Line="17" Column="13" />
+      <File FileName="Basic Tests/UnitTest1.cs" Line="22" Column="38" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="basic 1" expanded="True">
+            <Node name="basic 1">
+              <Node name="Dice.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="basic 1" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

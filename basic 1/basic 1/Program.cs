@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Net;
 using basic_1;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static basic_1.Dice; // Import Dice Class from Dice.cs
+using static basic_1.GameRequests; // Import Dice Class from Dice.cs
 
 namespace basic
 {
@@ -11,6 +13,14 @@ namespace basic
     {
         public static void Main(string[] args)
         {
+            GameRequests game = new GameRequests("http://127.0.0.1");
+            game.StartGame(4);
+            string[] data = game.StartGame(4);
+            for (int i = 0; i<data.Length; i++)
+            {
+                Console.WriteLine(data[i]);
+            }
+            return;
             // Add
             Console.WriteLine("add");
             Console.WriteLine(add(10, 2, 2));
